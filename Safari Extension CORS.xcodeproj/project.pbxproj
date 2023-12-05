@@ -21,10 +21,10 @@
 		BE0500E12B1EC89D00A54F64 /* images in Resources */ = {isa = PBXBuildFile; fileRef = BE0500E02B1EC89D00A54F64 /* images */; };
 		BE0500E32B1EC89D00A54F64 /* manifest.json in Resources */ = {isa = PBXBuildFile; fileRef = BE0500E22B1EC89D00A54F64 /* manifest.json */; };
 		BE0500E52B1EC89D00A54F64 /* background.js in Resources */ = {isa = PBXBuildFile; fileRef = BE0500E42B1EC89D00A54F64 /* background.js */; };
-		BE0500E72B1EC89D00A54F64 /* content.js in Resources */ = {isa = PBXBuildFile; fileRef = BE0500E62B1EC89D00A54F64 /* content.js */; };
 		BE0500E92B1EC89D00A54F64 /* popup.html in Resources */ = {isa = PBXBuildFile; fileRef = BE0500E82B1EC89D00A54F64 /* popup.html */; };
 		BE0500EB2B1EC89D00A54F64 /* popup.css in Resources */ = {isa = PBXBuildFile; fileRef = BE0500EA2B1EC89D00A54F64 /* popup.css */; };
 		BE0500ED2B1EC89D00A54F64 /* popup.js in Resources */ = {isa = PBXBuildFile; fileRef = BE0500EC2B1EC89D00A54F64 /* popup.js */; };
+		BE4C04F02B1ED7B200A6045D /* button.js in Resources */ = {isa = PBXBuildFile; fileRef = BE4C04EF2B1ED7B200A6045D /* button.js */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -69,12 +69,12 @@
 		BE0500E02B1EC89D00A54F64 /* images */ = {isa = PBXFileReference; lastKnownFileType = folder; path = images; sourceTree = "<group>"; };
 		BE0500E22B1EC89D00A54F64 /* manifest.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = manifest.json; sourceTree = "<group>"; };
 		BE0500E42B1EC89D00A54F64 /* background.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = background.js; sourceTree = "<group>"; };
-		BE0500E62B1EC89D00A54F64 /* content.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = content.js; sourceTree = "<group>"; };
 		BE0500E82B1EC89D00A54F64 /* popup.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = popup.html; sourceTree = "<group>"; };
 		BE0500EA2B1EC89D00A54F64 /* popup.css */ = {isa = PBXFileReference; lastKnownFileType = text.css; path = popup.css; sourceTree = "<group>"; };
 		BE0500EC2B1EC89D00A54F64 /* popup.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = popup.js; sourceTree = "<group>"; };
 		BE0500EE2B1EC89D00A54F64 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BE0500EF2B1EC89D00A54F64 /* Safari_Extension_CORS_Extension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Safari_Extension_CORS_Extension.entitlements; sourceTree = "<group>"; };
+		BE4C04EF2B1ED7B200A6045D /* button.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = button.js; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -156,10 +156,10 @@
 				BE0500E02B1EC89D00A54F64 /* images */,
 				BE0500E22B1EC89D00A54F64 /* manifest.json */,
 				BE0500E42B1EC89D00A54F64 /* background.js */,
-				BE0500E62B1EC89D00A54F64 /* content.js */,
 				BE0500E82B1EC89D00A54F64 /* popup.html */,
 				BE0500EA2B1EC89D00A54F64 /* popup.css */,
 				BE0500EC2B1EC89D00A54F64 /* popup.js */,
+				BE4C04EF2B1ED7B200A6045D /* button.js */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -258,13 +258,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BE4C04F02B1ED7B200A6045D /* button.js in Resources */,
 				BE0500E52B1EC89D00A54F64 /* background.js in Resources */,
 				BE0500EB2B1EC89D00A54F64 /* popup.css in Resources */,
 				BE0500E92B1EC89D00A54F64 /* popup.html in Resources */,
 				BE0500E12B1EC89D00A54F64 /* images in Resources */,
 				BE0500E32B1EC89D00A54F64 /* manifest.json in Resources */,
 				BE0500DF2B1EC89D00A54F64 /* _locales in Resources */,
-				BE0500E72B1EC89D00A54F64 /* content.js in Resources */,
 				BE0500ED2B1EC89D00A54F64 /* popup.js in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

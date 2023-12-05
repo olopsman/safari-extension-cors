@@ -19,8 +19,22 @@
     },
 
     "content_scripts": [{
-        "js": [ "content.js" ],
-        "matches": [ "*://example.com/*" ]
+        "js": [ "button.js" ],
+        "matches": [
+            "https://*.salesforce.com/*",
+            "https://*.visual.force.com/*",
+            "https://*.vf.force.com/*",
+            "https://*.lightning.force.com/*",
+            "https://*.cloudforce.com/*",
+            "https://*.visualforce.com/*",
+            "https://*.salesforce.mil/*",
+            "https://*.visual.force.mil/*",
+            "https://*.vf.force.mil/*",
+            "https://*.lightning.force.mil/*",
+            "https://*.cloudforce.mil/*",
+            "https://*.visualforce.mil/*",
+            "https://*.crmforce.mil/*"
+          ]
     }],
 
     "action": {
@@ -35,5 +49,5 @@
         }
     },
 
-    "permissions": [ ]
+    "permissions": ["cookies"],
 }
