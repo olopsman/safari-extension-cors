@@ -16,10 +16,11 @@ if (document.querySelector("body.sfdcBody, body.ApexCSIPage, #auraLoadingBox") |
 
         let paramKey = "access_token";
         //call a new promise
-        let message = browser.runtime.sendMessage({ message: "getSession" , sfHost}).then((response) => {
-            return response;
-        });
-        
+        let message = new Promise((resolve, reject) => {
+            browser.runtime.sendMessage({ message: "getSession" , sfHost}).then((response) => {
+                resolve(response);
+            });
+        });               
         console.log("## message response: ", message);
 
    });
