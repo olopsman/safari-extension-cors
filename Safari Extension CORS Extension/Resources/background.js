@@ -1,5 +1,8 @@
 "use strict";
 chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
+    console.log("## background received request: ", request.message);
+    if (request.message === "hello")
+        sendResponse({ message: "goodbye" });
   // Perform cookie operations in the background page, because not all foreground pages have access to the cookie API.
   // Firefox does not support incognito split mode, so we use sender.tab.cookieStoreId to select the right cookie store.
   // Chrome does not support sender.tab.cookieStoreId, which means it is undefined, and we end up using the default cookie store according to incognito split mode.
@@ -51,6 +54,8 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
   }
   if (request.message == "getSession") {
     chrome.cookies.get({url: "https://" + request.sfHost, name: "sid", storeId: sender.tab.cookieStoreId}, sessionCookie => {
+        console.log("## background getSession: ", sessionCookie);
+
       if (!sessionCookie) {
         sendResponse(null);
         return;

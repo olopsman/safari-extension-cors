@@ -50,4 +50,15 @@
     },
 
     "permissions": ["cookies"],
+    "host_permissions": [
+      "https://*.salesforce.com/*",
+      "https://*.force.com/*",
+      "https://*.cloudforce.com/*",
+      "https://*.visualforce.com/*",
+      "https://*.salesforce.mil/*",
+      "https://*.force.mil/*",
+      "https://*.cloudforce.mil/*",
+      "https://*.visualforce.mil/*",
+      "https://*.crmforce.mil/*"
+    ],
 }
