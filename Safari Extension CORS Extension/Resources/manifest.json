@@ -20,6 +20,7 @@
 
     "content_scripts": [{
         "js": [ "button.js" ],
+        "css": ["button.css"],
         "matches": [
             "https://*.salesforce.com/*",
             "https://*.visual.force.com/*",
@@ -36,7 +37,21 @@
             "https://*.crmforce.mil/*"
           ]
     }],
-
+    "web_accessible_resources": [
+      {
+        "resources": [
+          "popup.html",
+          "data-export.html",
+          "data-import.html",
+          "inspect.html",
+          "metadata-retrieve.html",
+          "explore-api.html",
+          "limits.html"
+        ],
+        "matches": ["https://*/*"]
+      }
+    ],
+    
     "action": {
         "default_popup": "popup.html",
         "default_icon": {

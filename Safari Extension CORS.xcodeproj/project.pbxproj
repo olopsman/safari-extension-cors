@@ -25,6 +25,9 @@
 		BE0500EB2B1EC89D00A54F64 /* popup.css in Resources */ = {isa = PBXBuildFile; fileRef = BE0500EA2B1EC89D00A54F64 /* popup.css */; };
 		BE0500ED2B1EC89D00A54F64 /* popup.js in Resources */ = {isa = PBXBuildFile; fileRef = BE0500EC2B1EC89D00A54F64 /* popup.js */; };
 		BE4C04F02B1ED7B200A6045D /* button.js in Resources */ = {isa = PBXBuildFile; fileRef = BE4C04EF2B1ED7B200A6045D /* button.js */; };
+		BE7821B92B2143CA004CEBD8 /* module.js in Resources */ = {isa = PBXBuildFile; fileRef = BE7821B82B2143CA004CEBD8 /* module.js */; };
+		BE7821BB2B2145A2004CEBD8 /* inspector.js in Resources */ = {isa = PBXBuildFile; fileRef = BE7821BA2B2145A1004CEBD8 /* inspector.js */; };
+		BE7821BD2B215A62004CEBD8 /* button.css in Resources */ = {isa = PBXBuildFile; fileRef = BE7821BC2B215A62004CEBD8 /* button.css */; };
 		BEF983DC2B1FD01E00BDF398 /* react.js in Resources */ = {isa = PBXBuildFile; fileRef = BEF983DB2B1FD01E00BDF398 /* react.js */; };
 		BEF983DE2B1FD04300BDF398 /* react-dom.min.js in Resources */ = {isa = PBXBuildFile; fileRef = BEF983DD2B1FD04300BDF398 /* react-dom.min.js */; };
 		BEF983E22B1FF8A300BDF398 /* button.css in Resources */ = {isa = PBXBuildFile; fileRef = BEF983E12B1FF8A300BDF398 /* button.css */; };
@@ -78,6 +81,9 @@
 		BE0500EE2B1EC89D00A54F64 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BE0500EF2B1EC89D00A54F64 /* Safari_Extension_CORS_Extension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Safari_Extension_CORS_Extension.entitlements; sourceTree = "<group>"; };
 		BE4C04EF2B1ED7B200A6045D /* button.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = button.js; sourceTree = "<group>"; };
+		BE7821B82B2143CA004CEBD8 /* module.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = module.js; sourceTree = "<group>"; };
+		BE7821BA2B2145A1004CEBD8 /* inspector.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = inspector.js; sourceTree = "<group>"; };
+		BE7821BC2B215A62004CEBD8 /* button.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; name = button.css; path = "../../../Safari-Salesforce-Inspector-Reloaded/addon/button.css"; sourceTree = "<group>"; };
 		BEF983DB2B1FD01E00BDF398 /* react.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = react.js; sourceTree = "<group>"; };
 		BEF983DD2B1FD04300BDF398 /* react-dom.min.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = "react-dom.min.js"; sourceTree = "<group>"; };
 		BEF983E12B1FF8A300BDF398 /* button.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; name = button.css; path = "../../../Safari-Salesforce-Inspector-Reloaded/addon/button.css"; sourceTree = "<group>"; };
@@ -169,6 +175,9 @@
 				BEF983DB2B1FD01E00BDF398 /* react.js */,
 				BEF983DD2B1FD04300BDF398 /* react-dom.min.js */,
 				BEF983E12B1FF8A300BDF398 /* button.css */,
+				BE7821B82B2143CA004CEBD8 /* module.js */,
+				BE7821BA2B2145A1004CEBD8 /* inspector.js */,
+				BE7821BC2B215A62004CEBD8 /* button.css */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -269,13 +278,16 @@
 			files = (
 				BE4C04F02B1ED7B200A6045D /* button.js in Resources */,
 				BEF983E22B1FF8A300BDF398 /* button.css in Resources */,
+				BE7821B92B2143CA004CEBD8 /* module.js in Resources */,
 				BE0500E52B1EC89D00A54F64 /* background.js in Resources */,
 				BEF983DC2B1FD01E00BDF398 /* react.js in Resources */,
+				BE7821BB2B2145A2004CEBD8 /* inspector.js in Resources */,
 				BE0500EB2B1EC89D00A54F64 /* popup.css in Resources */,
 				BE0500E92B1EC89D00A54F64 /* popup.html in Resources */,
 				BEF983DE2B1FD04300BDF398 /* react-dom.min.js in Resources */,
 				BE0500E12B1EC89D00A54F64 /* images in Resources */,
 				BE0500E32B1EC89D00A54F64 /* manifest.json in Resources */,
+				BE7821BD2B215A62004CEBD8 /* button.css in Resources */,
 				BE0500DF2B1EC89D00A54F64 /* _locales in Resources */,
 				BE0500ED2B1EC89D00A54F64 /* popup.js in Resources */,
 			);
