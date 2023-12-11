@@ -133,9 +133,7 @@ function initButton(sfHost, inInspector) {
           // These event listeners are only enabled when the popup is active to avoid interfering with Salesforce when not using the inspector
           addEventListener("click", outsidePopupClick);
           popupEl.focus();
-            console.log("###  openPopup()");
-            
-            
+            console.log("###  openPopup()");            
         }
         function closePopup() {
           rootEl.classList.remove("insext-active");

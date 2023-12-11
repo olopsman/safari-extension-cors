@@ -1,4 +1,6 @@
 "use strict";
+
+var sessionKey;
 chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
     console.log("## background received request: ", request.message);
     if (request.message === "hello")
@@ -60,10 +62,32 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
         sendResponse(null);
         return;
       }
+      sessionKey = sessionCookie.key
       let session = {key: sessionCookie.value, hostname: sessionCookie.domain};
       sendResponse(session);
     });
     return true; // Tell Chrome that we want to call sendResponse asynchronously.
   }
+    
+    if(request.message == "startFunc") {
   return false;
 });
+
+
+var func = function(){
+    console.log("≈!");
+    console.log("## background getSession sessionKey: ", sessionKey);
+    const headers = new Headers();
+    headers.append('Content-Type', 'application/json');
+    headers.append("Authorization", "Bearer " + sessionKey);
+
+    fetch("https://genesisenergy--uat.sandbox.my.salesforce.com/services/data/v59/query/?q=SELECT+IsSandbox,+InstanceName+FROM+Organization")
+    .then(response =>{
+        console.log("### Success 2 - Sandbox", response)
+    })
+    .catch(error=>{
+        console.log("Fail 2", error)
+    })
+
+};
+
