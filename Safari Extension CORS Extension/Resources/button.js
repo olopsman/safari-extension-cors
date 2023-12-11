@@ -134,6 +134,8 @@ function initButton(sfHost, inInspector) {
           addEventListener("click", outsidePopupClick);
           popupEl.focus();
             console.log("###  openPopup()");
+            
+            
         }
         function closePopup() {
           rootEl.classList.remove("insext-active");

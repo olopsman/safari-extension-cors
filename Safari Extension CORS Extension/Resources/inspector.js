@@ -22,12 +22,12 @@ export let sfConn = {
             this.sessionId = data;
           }
           let isSandbox = "isSandbox";
-          if (localStorage.getItem(sfHost + "_" + isSandbox) == null) {
-            sfConn.rest("/services/data/v" + apiVersion + "/query/?q=SELECT+IsSandbox,+InstanceName+FROM+Organization").then(res => {
-                localStorage.setItem(sfHost + "_" + isSandbox, res.records[0].IsSandbox);
-              localStorage.setItem(sfHost + "_orgInstance", res.records[0].InstanceName);
-            });
-          }
+//          if (localStorage.getItem(sfHost + "_" + isSandbox) == null) {
+//            sfConn.rest("/services/data/v" + apiVersion + "/query/?q=SELECT+IsSandbox,+InstanceName+FROM+Organization").then(res => {
+//                localStorage.setItem(sfHost + "_" + isSandbox, res.records[0].IsSandbox);
+//              localStorage.setItem(sfHost + "_orgInstance", res.records[0].InstanceName);
+//            });
+//          }
         }
       },
     
