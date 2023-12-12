@@ -165,18 +165,18 @@
 			isa = PBXGroup;
 			children = (
 				BE0500DE2B1EC89D00A54F64 /* _locales */,
-				BE0500E02B1EC89D00A54F64 /* images */,
-				BE0500E22B1EC89D00A54F64 /* manifest.json */,
 				BE0500E42B1EC89D00A54F64 /* background.js */,
-				BE0500E82B1EC89D00A54F64 /* popup.html */,
-				BE0500EA2B1EC89D00A54F64 /* popup.css */,
-				BE0500EC2B1EC89D00A54F64 /* popup.js */,
-				BE4C04EF2B1ED7B200A6045D /* button.js */,
-				BEF983DB2B1FD01E00BDF398 /* react.js */,
-				BEF983DD2B1FD04300BDF398 /* react-dom.min.js */,
 				BEF983E12B1FF8A300BDF398 /* button.css */,
-				BE7821B82B2143CA004CEBD8 /* module.js */,
+				BE4C04EF2B1ED7B200A6045D /* button.js */,
+				BE0500E02B1EC89D00A54F64 /* images */,
 				BE7821BA2B2145A1004CEBD8 /* inspector.js */,
+				BE0500E22B1EC89D00A54F64 /* manifest.json */,
+				BE7821B82B2143CA004CEBD8 /* module.js */,
+				BE0500EA2B1EC89D00A54F64 /* popup.css */,
+				BE0500E82B1EC89D00A54F64 /* popup.html */,
+				BE0500EC2B1EC89D00A54F64 /* popup.js */,
+				BEF983DD2B1FD04300BDF398 /* react-dom.min.js */,
+				BEF983DB2B1FD01E00BDF398 /* react.js */,
 				BE7821BC2B215A62004CEBD8 /* button.css */,
 			);
 			path = Resources;
