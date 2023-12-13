@@ -13,23 +13,25 @@ let h = React.createElement;
 }
 
 function init({sfHost, inDevConsole, inLightning, inInspector}) {
-   
-    
-
-    chrome.runtime.sendMessage({message: "getSfHost", url: location.href}, sfHost => {
-      if (sfHost) {
-          chrome.runtime.sendMessage({message: "getSession", url: location.href}, sfSession => {
-            if (sfSession) {
-                console.log("####");
-                ReactDOM.render(h(App, {
-                  sfHost,
-                  inDevConsole,
-                  inLightning,
-                  inInspector,
-                  addonVersion,
-                }), document.getElementById("root"));
-            }
-          });
+    let addonVersion = browser.runtime.getManifest().version;
+    console.log("## location.href", location.href);
+    //get the sfHost from sessionStorage    
+    // chrome.storage.session.setAccessLevel({ accessLevel: 'TRUSTED_AND_UNTRUSTED_CONTEXTS' });
+    chrome.storage.session.get(["sfhost"]).then((result) => {
+      console.log("popup value currently is " + result.sfhost);
+      if(result.sfHost !== null) {
+          chrome.runtime.sendMessage({message: "getSession", sfHost: result.sfHost}, sfSession => {
+          if (sfSession) {
+            console.log("#### sfSession" , sfSession);
+              ReactDOM.render(h(App, {
+                sfHost,
+                inDevConsole,
+                inLightning,
+                inInspector,
+                addonVersion,
+              }), document.getElementById("root"));
+          }
+        });
       }
     });
 }
@@ -55,7 +57,13 @@ class App extends React.PureComponent {
             });
         }
     }
-    
+
+    componentDidMount() {
+      addEventListener("message", this.onContextUrlMessage);
+      addEventListener("keydown", this.onShortcutKey);
+      parent.postMessage({insextLoaded: true}, "*");
+    }
+
     render() {
         let {
             sfHost,

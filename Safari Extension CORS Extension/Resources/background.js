@@ -2,6 +2,7 @@
 //import {sfConn, apiVersion} from "./inspector.js";
 
 chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
+    console.log("## background", location.href);
     console.log("## background received request: ", request.message);
   // Perform cookie operations in the background page, because not all foreground pages have access to the cookie API.
   // Firefox does not support incognito split mode, so we use sender.tab.cookieStoreId to select the right cookie store.
@@ -23,21 +24,32 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
       chrome.cookies.getAll({name: "sid", domain: "salesforce.com", secure: true, storeId: sender.tab.cookieStoreId}, cookies => {
         let sessionCookie = cookies.find(c => c.value.startsWith(orgId + "!"));
         if (sessionCookie) {
+          // sessionStorage.setItem("sfhost", sessionCookie.domain);
+          chrome.storage.session.set({sfhost: sessionCookie.domain}).then(() => {
+              console.log('Background value is set to ' + sessionCookie.domain);
+          });
+
+          chrome.storage.session.get(["sfhost"]).then((result) => {
+            console.log("Background value currently is " + result.sfhost);
+          });
           sendResponse(sessionCookie.domain);
         } else {
           chrome.cookies.getAll({name: "sid", domain: "cloudforce.com", secure: true, storeId: sender.tab.cookieStoreId}, cookies => {
             sessionCookie = cookies.find(c => c.value.startsWith(orgId + "!"));
             if (sessionCookie) {
+              // sessionStorage.setItem('sfhost', sessionCookie.domain);
               sendResponse(sessionCookie.domain);
             } else {
               chrome.cookies.getAll({name: "sid", domain: "salesforce.mil", secure: true, storeId: sender.tab.cookieStoreId}, cookies => {
                 sessionCookie = cookies.find(c => c.value.startsWith(orgId + "!"));
                 if (sessionCookie) {
+                  // sessionStorage.setItem('sfhost', sessionCookie.domain);
                   sendResponse(sessionCookie.domain);
                 } else {
                   chrome.cookies.getAll({name: "sid", domain: "cloudforce.mil", secure: true, storeId: sender.tab.cookieStoreId}, cookies => {
                     sessionCookie = cookies.find(c => c.value.startsWith(orgId + "!"));
                     if (sessionCookie) {
+                      // sessionStorage.setItem('sfhost', sessionCookie.domain);
                       sendResponse(sessionCookie.domain);
                     } else {
                       sendResponse(null);
@@ -53,6 +65,7 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
     return true; // Tell Chrome that we want to call sendResponse asynchronously.
   }
   if (request.message == "getSession") {
+      console.log("## background getSession request.sfHost: ", request.sfHost);
     chrome.cookies.get({url: "https://" + request.sfHost, name: "sid", storeId: sender.tab.cookieStoreId}, sessionCookie => {
         console.log("## background getSession: ", sessionCookie);
 

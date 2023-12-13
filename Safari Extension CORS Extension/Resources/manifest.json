@@ -64,7 +64,7 @@
         }
     },
 
-    "permissions": ["cookies"],
+    "permissions": ["cookies", "storage"],
     "host_permissions": [
       "https://*.salesforce.com/*",
       "https://*.force.com/*",
