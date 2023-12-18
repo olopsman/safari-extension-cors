@@ -21,17 +21,18 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
         return;
       }
       let [orgId] = cookie.value.split("!");
-      chrome.cookies.getAll({name: "sid", domain: "salesforce.com", secure: true, storeId: sender.tab.cookieStoreId}, cookies => {
+      chrome.cookies.getAll({name: "sid", domain: "force.com", secure: true, storeId: sender.tab.cookieStoreId}, cookies => {
         let sessionCookie = cookies.find(c => c.value.startsWith(orgId + "!"));
         if (sessionCookie) {
           // sessionStorage.setItem("sfhost", sessionCookie.domain);
           chrome.storage.session.set({sfhost: sessionCookie.domain}).then(() => {
-              console.log('Background value is set to ' + sessionCookie.domain);
+              console.log('Background value is setting to ' + sessionCookie.domain);
+              chrome.storage.session.get(["sfhost"]).then((result) => {
+                console.log("Background retrieved value from storage is " + result.sfhost);
+              });
           });
 
-          chrome.storage.session.get(["sfhost"]).then((result) => {
-            console.log("Background value currently is " + result.sfhost);
-          });
+
           sendResponse(sessionCookie.domain);
         } else {
           chrome.cookies.getAll({name: "sid", domain: "cloudforce.com", secure: true, storeId: sender.tab.cookieStoreId}, cookies => {
@@ -65,18 +66,26 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
     return true; // Tell Chrome that we want to call sendResponse asynchronously.
   }
   if (request.message == "getSession") {
-      console.log("## background getSession request.sfHost: ", request.sfHost);
-    chrome.cookies.get({url: "https://" + request.sfHost, name: "sid", storeId: sender.tab.cookieStoreId}, sessionCookie => {
-        console.log("## background getSession: ", sessionCookie);
+      
+    chrome.storage.session.get(["sfhost"]).then((result) => {
+         console.log("Background getSession retrieved session from storage is " + result.sfhost);
+        chrome.cookies.get({url: "https://" + result.sfhost, name: "sid", storeId: sender.tab.cookieStoreId}, sessionCookie => {
+            console.log("## background getSession: ", sessionCookie);
 
-      if (!sessionCookie) {
-        sendResponse(null);
-        return;
-      }
-      sessionKey = sessionCookie.key
-      let session = {key: sessionCookie.value, hostname: sessionCookie.domain};
-      sendResponse(session);
+          if (!sessionCookie) {
+            sendResponse(null);
+            return;
+          }
+          sessionKey = sessionCookie.key
+          let session = {key: sessionCookie.value, hostname: sessionCookie.domain};
+            //store the session in storage
+            chrome.storage.session.set({getSession: session}).then(() => {
+               console.log("session logged");
+            });
+          sendResponse(session);
+        });
     });
+
     return true; // Tell Chrome that we want to call sendResponse asynchronously.
   }
     
